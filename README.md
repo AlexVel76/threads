@@ -37,7 +37,7 @@ Running Time (millis): 19
 Maximum value in array is: 2147483547
 
 
-Count number in array: 100000000
+Count number in array: 100 000 000
 ------------Find by foreach---------------
 Running Time (millis): 33
 Maximum value in array is: 2147483638
