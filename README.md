@@ -7,24 +7,32 @@ A couple of small projects that show and describing different aspects of topic o
     RESULT:
     -Xmx60000m -Xms10000m
 
-    Free memory: 5718
-    Count number in array: 1000000000
-    Free memory after generate array: 5668
+    Count number in array: 1 000 000 000
     ------------Find by foreach---------------
     Running Time (millis): 362
     Maximum value in array is: 2147483644
-    Free memory: 5668
     ------------Find by custom thread---------------
     Running Time (millis): 185
     Maximum value in array is: 2147483644
-    Free memory: 9457
     ------------Find by common stream---------------
     Running Time (millis): 522
     Maximum value in array is: 2147483644
-    Free memory: 9532
     ------------Find by parallel stream---------------
     Running Time (millis): 147
     Maximum value in array is: 2147483644
-    Free memory: 9357
+
+Count number in array: 10 000 000
+------------Find by foreach---------------
+Running Time (millis): 15
+Maximum value in array is: 2147483547
+------------Find by custom thread---------------
+Running Time (millis): 31
+Maximum value in array is: 2147483547
+------------Find by common stream---------------
+Running Time (millis): 0
+Maximum value in array is: 2147483547
+------------Find by parallel stream---------------
+Running Time (millis): 19
+Maximum value in array is: 2147483547
 
  
