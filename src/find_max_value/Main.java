@@ -13,24 +13,37 @@ public class Main {
     static int[] numbers = new int[1000000000];
     static CountDownLatch latch;
 
-    public static void main(String[] args) {
-        System.out.println(Runtime.getRuntime().freeMemory());
+    public static void main(String[] args) throws InterruptedException {
+        Runtime.getRuntime().gc();
+        Thread.sleep(1000);
+        System.out.println("Free memory: " + Runtime.getRuntime().freeMemory()/1024/1024);
 
         System.out.println("Count number in array: " + numbers.length);
 
         numbers = generateNumbers(numbers.length);
+        System.out.println("Free memory after generate array: " + Runtime.getRuntime().freeMemory()/1024/1024);
 
         System.out.println("------------Find by foreach---------------");
         findByForEach();
+        System.out.println("Free memory: " + Runtime.getRuntime().freeMemory()/1024/1024);
 
+        Runtime.getRuntime().gc();
+        Thread.sleep(1000);
         System.out.println("------------Find by custom thread---------------");
         findByInThreads();
+        System.out.println("Free memory: " + Runtime.getRuntime().freeMemory()/1024/1024);
 
+        Runtime.getRuntime().gc();
+        Thread.sleep(1000);
         System.out.println("------------Find by common stream---------------");
         findByStream(Arrays.stream(numbers));
+        System.out.println("Free memory: " + Runtime.getRuntime().freeMemory()/1024/1024);
 
+        Runtime.getRuntime().gc();
+        Thread.sleep(1000);
         System.out.println("------------Find by parallel stream---------------");
         findByStream(Arrays.stream(numbers).parallel());
+        System.out.println("Free memory: " + Runtime.getRuntime().freeMemory()/1024/1024);
     }
 
     private static int findByForEach() {
