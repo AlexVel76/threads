@@ -37,18 +37,20 @@ Running Time (millis): 19
 Maximum value in array is: 2147483547
 
 
-Count number in array: 100 000 000
+Count number in array: 100000000
 ------------Find by foreach---------------
-Running Time (millis): 33
-Maximum value in array is: 2147483638
+Running Time (millis): 37
+Maximum value in array is: 2147483606
 ------------Find by custom thread---------------
-Running Time (millis): 50
-Maximum value in array is: 2147483638
+cpu count: 8
+Running treads: 8
+Running Time (millis): 32
+Maximum value in array is: 2147483606
 ------------Find by common stream---------------
-Running Time (millis): 62
-Maximum value in array is: 2147483638
+Running Time (millis): 65
+Maximum value in array is: 2147483606
 ------------Find by parallel stream---------------
-Running Time (millis): 31
-Maximum value in array is: 2147483638
+Running Time (millis): 19
+Maximum value in array is: 2147483606
 
  
