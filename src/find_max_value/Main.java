@@ -10,12 +10,18 @@ import java.util.stream.IntStream;
 
 public class Main {
     static AtomicLong max = new AtomicLong(0);
-    static int[] numbers = new int[200000000];
+    static int[] numbers = new int[1000000000];
     static CountDownLatch latch;
 
     public static void main(String[] args) {
+        System.out.println(Runtime.getRuntime().freeMemory());
+
+        System.out.println("Count number in array: " + numbers.length);
 
         numbers = generateNumbers(numbers.length);
+
+        System.out.println("------------Find by foreach---------------");
+        findByForEach();
 
         System.out.println("------------Find by custom thread---------------");
         findByInThreads();
@@ -25,6 +31,19 @@ public class Main {
 
         System.out.println("------------Find by parallel stream---------------");
         findByStream(Arrays.stream(numbers).parallel());
+    }
+
+    private static int findByForEach() {
+        int max = 0;
+        long startTime = System.currentTimeMillis();
+        for (int i : numbers) {
+            if (max < i)
+                max = i;
+        }
+        long endTime = System.currentTimeMillis();
+        System.out.println("Running Time (millis): " + (endTime - startTime));
+        System.out.println("Maximum value in array is: " + max);
+        return max;
     }
 
     private static void findByInThreads() {
@@ -95,7 +114,7 @@ public class Main {
             latch.countDown();
         }
 
-        private void getMax(final int[] numbers) {
+        protected void getMax(final int[] numbers) {
             for (int i = indexStart; i <= indexEnd; i++) {
                 if (max.get() < numbers[i])
                     max.set(numbers[i]);
